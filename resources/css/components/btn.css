@@ -1,0 +1,81 @@
+.btn {
+    @apply .inline-block .no-underline .font-bold;
+}
+
+.form-control-focus-border:focus {
+    outline: none;
+    box-shadow: 0 0 8px config('colors.primary');
+}
+
+.btn-text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-default {
+    @apply .h-9 .px-6 .leading-36 .rounded-lg .shadow .btn-text-shadow;
+}
+
+.btn-disabled {
+    opacity: 0.5;
+}
+
+.btn-default:focus,
+.btn-default:active {
+    outline: none;
+    box-shadow: 0 0 8px config('colors.primary');
+}
+
+.btn-sm {
+    @apply .h-btn-sm;
+}
+
+.btn-lg {
+    @apply .h-12 leading-12 text-lg;
+}
+
+.btn-link {
+    @apply .bg-transparent .px-0 .py-0 .shadow-none;
+    text-shadow: none;
+}
+
+.btn-link:focus,
+.btn-link:active {
+    outline: inherit;
+    box-shadow: none;
+}
+
+.btn-primary {
+    @apply .bg-primary .text-white;
+}
+
+.btn-primary:hover {
+    @apply .bg-primary-dark;
+}
+
+.btn-danger {
+    @apply .bg-danger .text-white;
+}
+
+.btn-outline {
+    @apply border border-2 border-primary-30% rounded px-3 text-primary font-semibold;
+}
+
+.btn-outline:hover {
+    @apply border-primary;
+}
+
+.btn-icon {
+    @apply px-4 flex items-center;
+}
+
+.btn-white {
+    @apply bg-white;
+}
+
+.btn-icon:hover {
+    @apply .opacity-75;
+}
+
+.no-text-shadow {
+    text-shadow: none;
+}

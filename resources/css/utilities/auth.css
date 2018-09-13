@@ -1,0 +1,12 @@
+.max-w-login {
+    max-width: 25rem;
+}
+.p-view {
+    padding: 1rem;
+}
+@screen md {
+    .p-view {
+        padding-top: 3.125rem;
+        padding-bottom: 3.125rem;
+    }
+}

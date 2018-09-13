@@ -1,0 +1,106 @@
+.form-control {
+    @apply .h-9;
+    line-height: normal;
+}
+
+.form-control-sm {
+    @apply .h-8;
+}
+
+.form-input {
+    @apply .bg-white .border .border-white .px-3 .text-grey-dark .rounded-lg .shadow;
+}
+
+.form-control-focus {
+    outline: none;
+    box-shadow: 0 0 8px config('colors.primary');
+}
+
+.form-input:focus,
+.form-input:active {
+    @apply .rounded-lg .form-control-focus;
+}
+
+.form-control-lg {
+    @apply .h-12;
+}
+
+.form-input-bordered {
+    @apply .bg-white .border .border-grey .px-3 .text-grey-dark .rounded-lg .shadow;
+}
+
+.form-select {
+    @apply .bg-white .border .border-grey .pl-3 .pr-8 .rounded-lg .text-grey-dark .shadow;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-size: 10px 6px;
+    background-position: center right 0.75rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path fill="#35393C" fill-rule="nonzero" d="M8.293.293a1 1 0 0 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 1.707.293L5 3.586 8.293.293z"/></svg>');
+}
+
+.form-input:active:disabled,
+.form-input:focus:disabled,
+.form-select:active:disabled,
+.form-select:focus:disabled {
+    box-shadow: none;
+    @apply shadow;
+}
+
+.form-input:disabled,
+.form-select:disabled {
+    @apply .bg-grey-lighter;
+    cursor: not-allowed;
+}
+
+.form-select:focus {
+    @apply .form-control-focus;
+}
+
+.form-combo {
+    @apply .bg-white .border .border-grey .rounded-lg .text-grey-dark .shadow .overflow-hidden;
+}
+
+.form-combo-select {
+    @apply .bg-white .bg-transparent .pr-4;
+    outline: none;
+    background-repeat: no-repeat;
+    background-size: 10px 6px;
+    background-position: center right 0.75rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path fill="#35393C" fill-rule="nonzero" d="M8.293.293a1 1 0 0 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 1.707.293L5 3.586 8.293.293z"/></svg>');
+}
+
+/* Checkbox
+---------------------------------------------------------------------------- */
+.checkbox {
+    outline: none;
+}
+
+.checkbox:focus {
+    box-shadow: 0 0 8px config('colors.primary');
+}
+
+/* File Upload
+---------------------------------------------------------------------------- */
+.form-file {
+    @apply .relative;
+}
+
+.form-file-btn {
+}
+
+.form-file-input {
+    @apply .opacity-0 .overflow-hidden .absolute;
+    width: 0.1px;
+    height: 0.1px;
+    z-index: -1;
+}
+
+.form-file-input:focus + .form-file-btn,
+.form-file-input + .form-file-btn:hover {
+    @apply .bg-primary-dark .cursor-pointer;
+}
+
+.form-file-input:focus + .form-file-btn {
+    outline: none;
+    box-shadow: 0 0 8px config('colors.primary');
+}

@@ -1,0 +1,16 @@
+@import 'tailwindcss/preflight';
+
+@import 'reset';
+
+@import 'tailwindcss/components';
+
+@import 'components/icon';
+@import 'components/notifications';
+@import 'components/btn';
+@import 'components/forms';
+
+@import 'tailwindcss/utilities';
+
+@import 'utilities/accessibility';
+@import 'utilities/animations';
+@import 'utilities/auth';
