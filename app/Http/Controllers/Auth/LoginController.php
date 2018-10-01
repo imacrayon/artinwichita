@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -105,23 +106,24 @@ class LoginController extends Controller
 
         if (! $user) {
             $user = User::where('email', $profile->getEmail())->first();
-
-            if ($user) {
-                User::update([
-                    'settings' => ["{$provider}_id" => $profile->getId()]
-                ]);
-            }
         }
 
         if (! $user) {
             $user = User::create([
                 'name' => $profile->getName(),
-                'email' => $profile->getEmail(),
-                'settings' => ["{$provider}_id" => $profile->getId()]
+                'email' => $profile->getEmail()
             ]);
         }
 
-        session(["{$provider}_token" => $profile->token]);
+        $user->update([
+            'settings' => [
+                "{$provider}_id" => $profile->getId(),
+                "{$provider}_token" => $profile->token,
+                'expires_at' => Carbon::now()
+                                    ->addSeconds($profile->expiresIn)
+                                    ->format('Y-m-d H:i:s')
+            ]
+        ]);
 
         Auth::login($user, true);
 

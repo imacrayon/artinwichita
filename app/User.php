@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'settings->facebook_token'
     ];
 
     /**
@@ -35,4 +35,14 @@ class User extends Authenticatable
     protected $casts = [
         'settings' => 'array',
     ];
+
+    public function settings()
+    {
+        return $this->settings ? collect($this->settings) : collect();
+    }
+
+    public function is($role)
+    {
+        return $this->role === $role;
+    }
 }
