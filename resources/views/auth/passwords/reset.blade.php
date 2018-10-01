@@ -46,7 +46,7 @@
         <input class="form-control form-input form-input-bordered w-full" id="password_confirmation" type="password" name="password_confirmation" required>
     </div>
 
-    <button type="submit" class="w-full btn btn-default btn-primary hover:bg-primary-dark">
+    <button type="submit" class="w-full btn btn-primary hover:bg-primary-dark">
         {{ __('Reset Password') }}
     </button>
 </form>

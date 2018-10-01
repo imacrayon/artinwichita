@@ -12,7 +12,7 @@ export default {
 
             return DateTime.fromSQL(value)
                 .toUTC()
-                .format('yyyy-MM-dd HH:mm:ss')
+                .toFormat(MYSQL_FORMAT)
         },
 
         /**
@@ -23,9 +23,9 @@ export default {
                 return value
             }
 
-            return DateTime.fromSQL(value, { zone: 'utc' }).toFormat(
-                'yyyy-MM-dd HH:mm:ss'
-            )
-        }
-    }
+            return DateTime.fromSQL(value, { zone: 'UTC' })
+                .toLocal()
+                .toFormat(MYSQL_FORMAT)
+        },
+    },
 }

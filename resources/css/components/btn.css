@@ -1,40 +1,20 @@
 .btn {
-    @apply .inline-block .no-underline .font-bold;
-}
-
-.form-control-focus-border:focus {
-    outline: none;
-    box-shadow: 0 0 8px config('colors.primary');
-}
-
-.btn-text-shadow {
+    @apply inline-block no-underline font-bold text-center py-3 px-6 leading-none rounded-lg;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.btn-default {
-    @apply .h-9 .px-6 .leading-36 .rounded-lg .shadow .btn-text-shadow;
 }
 
 .btn-disabled {
     opacity: 0.5;
 }
 
-.btn-default:focus,
-.btn-default:active {
+.btn:focus,
+.btn:active {
     outline: none;
     box-shadow: 0 0 8px config('colors.primary');
 }
 
-.btn-sm {
-    @apply .h-btn-sm;
-}
-
-.btn-lg {
-    @apply .h-12 leading-12 text-lg;
-}
-
 .btn-link {
-    @apply .bg-transparent .px-0 .py-0 .shadow-none;
+    @apply bg-transparent px-0 py-0 shadow-none;
     text-shadow: none;
 }
 
@@ -45,15 +25,15 @@
 }
 
 .btn-primary {
-    @apply .bg-primary .text-white;
+    @apply bg-primary text-white;
 }
 
 .btn-primary:hover {
-    @apply .bg-primary-dark;
+    @apply bg-primary-dark;
 }
 
 .btn-danger {
-    @apply .bg-danger .text-white;
+    @apply .bg-danger text-white;
 }
 
 .btn-outline {
@@ -73,7 +53,22 @@
 }
 
 .btn-icon:hover {
-    @apply .opacity-75;
+    @apply opacity-75;
+}
+
+.btn-action {
+    @apply fixed pin-b pin-r text-primary z-50 mb-8 mr-8 rounded-full bg-white shadow-md;
+    font-size: 2.5rem;
+    height: 2.5rem;
+    line-height: 1rem;
+    transition: box-shadow 0.3s;
+    &:hover {
+        @apply shadow-lg;
+    }
+    @screen md {
+        font-size: 3.5rem;
+        height: 3.5rem;
+    }
 }
 
 .no-text-shadow {

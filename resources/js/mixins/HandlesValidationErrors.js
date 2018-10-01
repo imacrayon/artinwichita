@@ -1,4 +1,4 @@
-import { Errors } from 'form-backend-validation'
+import Errors from '../support/Errors'
 
 export default {
     props: {
@@ -17,7 +17,7 @@ export default {
         },
 
         fieldAttribute() {
-            return this.id
+            return this.field.name
         },
 
         hasError() {
@@ -28,6 +28,12 @@ export default {
             if (this.hasError) {
                 return this.errors.first(this.fieldAttribute)
             }
+        }
+    },
+
+    methods: {
+        recordErrors(errors = {}) {
+            this.errors.record(errors)
         }
     }
 }

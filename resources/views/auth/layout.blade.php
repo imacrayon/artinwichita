@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="font-sans text-black bg-grey-lighter h-full">
+<body class="font-body text-black bg-grey-lighter h-full">
     <div class="h-full">
         <div class="p-view">
             @yield('content')

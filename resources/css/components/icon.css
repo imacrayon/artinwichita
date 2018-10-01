@@ -6,12 +6,5 @@
     stroke: currentColor;
     fill: currentColor;
     position: relative;
-    vertical-align: middle;
-}
-
-.icon-pin {
-    width: 0.6416666667em;
-}
-.icon-phone {
-    width: 0.6616666667em;
+    vertical-align: text-top;
 }

@@ -4,7 +4,7 @@
 
 @include('auth.partials.logo', ['width' => '200', 'height' => '39'])
 
-<a class="btn btn-default btn-primary mx-auto" href="{{ route('auth.social', 'facebook') }}">Facebook</a>
+<a class="btn btn-primary mx-auto" href="{{ route('auth.social', 'facebook') }}">Facebook</a>
 
 <form class="bg-white shadow rounded-lg p-8 max-w-login mx-auto"
     method="POST"
@@ -42,7 +42,7 @@
     </div>
 
     <button
-        class="w-full btn btn-default btn-primary hover:bg-primary-dark"
+        class="w-full btn btn-primary hover:bg-primary-dark"
         type="submit">
         Login
     </button>

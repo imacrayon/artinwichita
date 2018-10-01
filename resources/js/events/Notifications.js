@@ -22,4 +22,8 @@ export default class Notifications {
     error(body, id) {
         this.emitter.$emit('notifications.error', body, id)
     }
+
+    info(body, id) {
+        this.emitter.$emit('notifications.info', body, id)
+    }
 }

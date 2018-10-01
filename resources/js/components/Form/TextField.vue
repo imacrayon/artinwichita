@@ -9,31 +9,25 @@ export default {
   mixins: [HandlesValidationErrors, FormField],
 
   components: {
-    Field
+    Field,
   },
 
   props: {
-    type: { type: String, default: 'text' }
-  }
+    type: { type: String, default: 'text' },
+  },
 }
 </script>
 
 <template>
-  <field
-    :label="label"
-    :label-for="id"
-    :helpText="helpText"
-    :showHelpText="showHelpText"
-  >
+  <field :field="field">
     <input
-      :type="type"
-      :id="id"
-      :name="name"
+      :type="field.type"
+      :id="field.name"
+      :name="field.name"
       v-bind="$attrs"
-      class="w-full form-control form-input form-input-bordered"
+      class="w-full form-input form-input-bordered"
       :class="errorClasses"
-      :value="value"
-      @input="handleChange($event.target.value)"
+      v-model="value"
     />
 
     <p v-if="hasError" class="my-2 text-danger">

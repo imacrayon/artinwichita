@@ -28,7 +28,7 @@
         @endif
     </div>
 
-    <button type="submit" class="w-full btn btn-default btn-primary hover:bg-primary-dark">
+    <button type="submit" class="w-full btn btn-primary hover:bg-primary-dark">
         {{ __('Send Reset Link') }}
     </button>
 </form>

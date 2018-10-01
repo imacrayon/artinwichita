@@ -1,12 +1,12 @@
 <template>
     <div class="mb-6">
         <slot name="label">
-            <form-label :for="id">
-                {{ label }}
+            <form-label :for="field.id">
+                {{ field.label }}
             </form-label>
 
-            <help-text :show-help-text="showHelpText">
-                {{ helpText }}
+            <help-text :show-help-text="!!field.helpText">
+                {{ field.helpText }}
             </help-text>
         </slot>
         <slot />
@@ -20,13 +20,10 @@ import HelpText from './HelpText'
 export default {
   components: {
     FormLabel,
-    HelpText
+    HelpText,
   },
   props: {
-    label: { type: String },
-    id: { type: String },
-    helpText: { type: String },
-    showHelpText: { type: Boolean, default: true }
-  }
+    field: { type: Object, required: true },
+  },
 }
 </script>

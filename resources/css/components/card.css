@@ -1,0 +1,4 @@
+.card {
+    @apply .bg-white .shadow .rounded-lg;
+    min-height: 3em;
+}

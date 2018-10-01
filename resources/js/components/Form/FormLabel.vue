@@ -1,5 +1,5 @@
 <template>
-    <label :for="labelFor" class="inline-block text-80 h-9 pt-2">
+    <label :for="labelFor" class="inline-block text-80 h-6 pt-1 text-grey-darker">
         <slot />
     </label>
 </template>
@@ -8,8 +8,8 @@
 export default {
   props: {
     labelFor: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 }
 </script>

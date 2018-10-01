@@ -38,7 +38,7 @@
         <input class="form-control form-input form-input-bordered w-full" id="password_confirmation" type="password" name="password_confirmation" required>
     </div>
 
-    <button class="w-full btn btn-default btn-primary hover:bg-primary-dark" type="submit">
+    <button class="w-full btn btn-primary hover:bg-primary-dark" type="submit">
         {{ __('Register') }}
     </button>
 </form>

@@ -6,8 +6,11 @@
 
 @import 'components/icon';
 @import 'components/notifications';
+@import 'components/site-header';
 @import 'components/btn';
 @import 'components/forms';
+@import 'components/card';
+@import 'components/expand';
 
 @import 'tailwindcss/utilities';
 

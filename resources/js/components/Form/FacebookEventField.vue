@@ -1,6 +1,5 @@
 <script>
 import Field from './Field'
-import debounce from 'lodash.debounce'
 import FormField from '../../mixins/FormField'
 import HandlesValidationErrors from '../../mixins/HandlesValidationErrors'
 import InteractsWithDates from '../../mixins/InteractsWithDates'
@@ -11,46 +10,53 @@ export default {
   mixins: [HandlesValidationErrors, FormField, InteractsWithDates],
 
   components: {
-    Field
+    Field,
   },
 
   methods: {
-    handleChange(value) {
-      this.$emit('input', value)
-      this.fetchEvent(value)
+    handlePaste() {
+      this.$nextTick(() => {
+        this.fetchEvent()
+      })
+
+      return true
     },
 
-    async fetchEvent(url) {
+    async fetchEvent() {
       try {
-        let response = await axios.get(`/api/import/facebook?url=${url}`)
+        let response = await axios.get(`/api/import/facebook?url=${this.value}`)
         let event = response.data
         event.start_time = this.fromAppTimezone(event.start_time)
         event.end_time = this.fromAppTimezone(event.end_time)
-        this.$emit('fetched', event)
+        Object.keys(event).forEach(key => {
+          window.events.$emit(
+            `${key}-value`,
+            key !== 'place' ? event[key] : event[key].full_address
+          )
+        })
       } catch (error) {
-        window.notifications.error(error.message)
+        if (error.response.status == 422) {
+          this.recordErrors(error.response.data.errors)
+        }
+        window.notifications.error(error.response.data.message)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <template>
-  <field
-    :label="label"
-    :label-for="id"
-    :helpText="helpText"
-    :showHelpText="showHelpText"
-  >
+  <field :field="field">
     <input
       type="text"
-      :id="id"
-      :name="name"
+      :id="field.name"
+      :name="field.name"
+      placeholder="https://www.facebook.com/events/080490/"
       v-bind="$attrs"
-      class="w-full form-control form-input form-input-bordered"
+      class="w-full form-input form-input-bordered"
       :class="errorClasses"
-      :value="value"
-      @input="handleChange($event.target.value)"
+      v-model="value"
+      @paste="handlePaste"
     />
 
     <p v-if="hasError" class="my-2 text-danger">

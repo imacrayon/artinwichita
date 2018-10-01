@@ -1,5 +1,5 @@
 <template>
-  <transition-group name="list" tag="div" class="notifications">
+  <transition-group name="notification" tag="div" class="notifications">
       <alert v-for="(alert, key) in alerts" :key="key" :color="alert.color">
         {{ alert.body }}
       </alert>
@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       alerts: {},
-      fade: 3000
+      fade: 3000,
     }
   },
   created() {
@@ -23,10 +23,10 @@ export default {
     window.events.$on('notifications.pending', this.pending)
     window.events.$on('notifications.success', this.success)
     window.events.$on('notifications.error', this.error)
+    window.events.$on('notifications.info', this.info)
   },
   methods: {
     add(body, color, fade, id) {
-      console.log(body, color, fade, id)
       if (!id) {
         id = Object.keys(this.alerts).length
       }
@@ -41,17 +41,17 @@ export default {
       this.$delete(this.alerts, id)
     },
     pending(body, id) {
-      this.add(body, 'blue', false, id)
-    },
-    info(body, id) {
-      this.add(body, 'blue', this.fade, id)
+      this.add(body, 'info', false, id)
     },
     success(body, id) {
-      this.add(body, 'green', this.fade, id)
+      this.add(body, 'success', this.fade, id)
     },
     error(body, id) {
-      this.add(body, 'red', this.fade, id)
-    }
-  }
+      this.add(body, 'danger', this.fade, id)
+    },
+    info(body, id) {
+      this.add(body, 'info', this.fade, id)
+    },
+  },
 }
 </script>
